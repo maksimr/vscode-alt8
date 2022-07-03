@@ -1,0 +1,80 @@
+{
+  "name": "alt8",
+  "displayName": "Alt8",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.68.0"
+  },
+  "author": {
+    "name": "Maksim Ryzhikov"
+  },
+  "license": "MIT",
+  "icon": "assets/logo.png",
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:alt8.findRelatedFiles"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "alt8.findRelatedFiles",
+        "title": "Alt8: Find Related Files"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "alt8.findRelatedFiles",
+        "key": "alt+8",
+        "mac": "alt+8",
+        "when": "editorTextFocus"
+      }
+    ],
+    "configuration": {
+      "title": "Alt8",
+      "properties": {
+        "alt8.projections": {
+          "type": "object",
+          "propertyNames": {
+            "type": "string"
+          },
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "alternate": {
+                "type": "string"
+              }
+            }
+          },
+          "default": {}
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "test:watch": "nodemon --watch out --exec npm run --ignore-scripts test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.68.0",
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "@typescript-eslint/parser": "^5.30.0",
+    "eslint": "^8.18.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.0.0",
+    "typescript": "^4.7.4",
+    "@vscode/test-electron": "^2.1.5",
+    "nodemon": "2.0.19"
+  }
+}
