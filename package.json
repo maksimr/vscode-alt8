@@ -14,6 +14,7 @@
     "url": "https://github.com/maksimr/vscode-alt8.git"
   },
   "license": "MIT",
+  "publisher": "maksimrv",
   "categories": [
     "Other"
   ],
