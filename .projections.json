@@ -1,0 +1,8 @@
+{
+  "*.ts": {
+    "alternate": "{dirname}/test/suite/{basename}.test.ts"
+  },
+  "**/test/suite/*.test.ts": {
+    "alternate": "{}.ts"
+  }
+}
