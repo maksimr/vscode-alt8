@@ -37,12 +37,14 @@ export function activate(context: vscode.ExtensionContext) {
     return vscodeProjections;
   }
 
-  async function findRelatedFiles(file: string, projections: { [pattern: string]: { "alternate"?: string } }) {
+  async function findRelatedFiles(file: string, projections: { [pattern: string]: { "alternate"?: string | string[] } }) {
     const candidates = Array.from(Object.entries(projections).reduce((candidates, [pattern, { alternate }]) => {
       const patternMatch = match(file, pattern);
       if (alternate && patternMatch) {
-        const candidate = expand(alternate, { match: patternMatch, file });
-        candidates.add(candidate);
+        [alternate].flat(1).forEach((alternate) => {
+          const candidate = expand(alternate, { match: patternMatch, file });
+          candidates.add(candidate);
+        });
       }
       return candidates;
     }, new Set<string>())).map((path) => vscode.Uri.file(path));

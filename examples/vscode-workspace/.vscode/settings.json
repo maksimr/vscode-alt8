@@ -1,7 +1,9 @@
 {
   "alt8.projections": {
     "*.js": {
-      "alternate": "{}.test.js"
+      "alternate": [
+        "{}.test.js"
+      ]
     }
   }
 }
