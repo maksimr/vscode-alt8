@@ -9,6 +9,10 @@
   "author": {
     "name": "Maksim Ryzhikov"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maksimr/vscode-alt8.git"
+  },
   "license": "MIT",
   "categories": [
     "Other"
